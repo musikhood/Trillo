@@ -1,3 +1,9 @@
+$bp-largest: 75em;
+$bp-large: 71.875em;
+$bp-medium: 56.875em;
+$bp-small: 37.5em;
+$bp-smallest: 31.25em;
+
 :root {
   --color-primary: #eb2f64;
   --color-primary-light: #ff3366;
@@ -26,6 +32,9 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+  @media screen and (max-width: $bp-large) {
+    font-size: 50%;
+  }
 }
 
 body {

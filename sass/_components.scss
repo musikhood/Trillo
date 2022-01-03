@@ -9,6 +9,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: $bp-smallest) {
+    order: 1;
+    flex: 0 0 100%;
+    background-color: var(--color-grey-light-2);
+  }
   &__input {
     font-family: inherit;
     font-size: inherit;
@@ -24,6 +29,9 @@
       outline: none;
       width: 100%;
       background-color: var(--color-grey-light-3);
+      @media screen and (max-width: $bp-smallest) {
+        background-color: var(--color-grey-light-2);
+      }
     }
     &::-webkit-input-placeholder {
       font-weight: 100;
@@ -100,10 +108,23 @@
   font-size: 1.4rem;
   list-style: none;
   margin-top: 3.5rem;
+  @media screen and (max-width: $bp-medium) {
+    display: flex;
+    margin: 0;
+  }
+  @media screen and (max-width: $bp-smallest) {
+    flex-direction: column;
+  }
   &__item {
     position: relative;
     &:not(:last-child) {
       margin-bottom: 0.5rem;
+      @media screen and (max-width: $bp-medium) {
+        margin: 0;
+      }
+    }
+    @media screen and (max-width: $bp-medium) {
+      flex: 1;
     }
     &::before {
       content: "";
@@ -138,12 +159,33 @@
 
     display: flex;
     align-items: center;
+    @media screen and (max-width: $bp-medium) {
+      justify-content: center;
+      padding: 2rem;
+    }
+    @media screen and (max-width: $bp-small) {
+      flex-direction: column;
+      padding: 1.5rem 0.5rem;
+    }
+    @media screen and (max-width: $bp-smallest) {
+      flex-direction: row;
+    }
   }
   &__icon {
     width: 1.75rem;
     height: 1.75rem;
     margin-right: 2rem;
     fill: currentColor;
+    @media screen and (max-width: $bp-small) {
+      margin-right: 0;
+      margin-bottom: 0.7rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    @media screen and (max-width: $bp-smallest) {
+      margin-right: 2rem;
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -152,6 +194,9 @@
   color: var(--color-grey-light-4);
   text-align: center;
   padding: 2.5rem;
+  @media screen and (max-width: $bp-medium) {
+    display: none;
+  }
 }
 
 .gallery {
@@ -166,16 +211,30 @@
   display: flex;
   align-items: center;
   border-bottom: 1px solid var(--color-grey-light-2);
+  @media screen and (max-width: $bp-smallest) {
+    flex-wrap: wrap;
+    text-align: center;
+    & > * {
+      flex: 0 0 100%;
+    }
+  }
   &__heading {
     font-size: 2.25rem;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1px;
     padding: 1.5rem 3rem;
+    @media screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
   }
   &__stars {
     margin-right: auto;
     display: flex;
+    @media screen and (max-width: $bp-smallest) {
+      justify-content: center;
+    }
   }
   &__icon-star,
   &__icon-location {
@@ -187,6 +246,10 @@
     font-size: 1.2rem;
     display: flex;
     align-items: center;
+    @media screen and (max-width: $bp-smallest) {
+      justify-content: center;
+      margin-bottom: 0.5rem;
+    }
   }
   &__icon-location {
     margin-right: 0.5rem;
@@ -201,14 +264,27 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    @media screen and (max-width: $bp-small) {
+      padding: 0 1.5rem;
+    }
+    @media screen and (max-width: $bp-smallest) {
+      padding: 0;
+      margin: 0;
+    }
   }
   &__rating-average {
     font-size: 2.25rem;
     font-weight: 300;
+    @media screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+    }
   }
   &__rating-count {
     font-size: 0.8rem;
     text-transform: uppercase;
+    @media screen and (max-width: $bp-large) {
+      font-size: 1.2rem;
+    }
   }
 }
 
@@ -270,6 +346,9 @@
   &__item {
     flex: 0 0 50%;
     margin-bottom: 0.7rem;
+    @media screen and (max-width: $bp-smallest) {
+      flex: 0 0 100%;
+    }
     &::before {
       content: "";
       display: inline-block;
@@ -293,10 +372,19 @@
   color: var(--color-grey-dark-3);
   display: flex;
   align-items: center;
+  @media screen and (max-width: $bp-smallest) {
+    flex-direction: column;
+    text-align: center;
+  }
   &__count {
     margin-right: auto;
   }
-
+  &__friends {
+    display: flex;
+    @media screen and (max-width: $bp-smallest) {
+      margin-top: 0.5rem;
+    }
+  }
   &__photo {
     box-sizing: content-box;
     height: 4rem;
@@ -304,7 +392,7 @@
     border-radius: 50%;
     border: 3px solid #fff;
     &:not(:last-child) {
-      margin-right: -1.5rem;
+      margin-right: -2rem;
     }
   }
 }
@@ -316,6 +404,10 @@
   margin-bottom: 3.5rem;
   position: relative;
   overflow: hidden;
+  @media screen and (max-width: $bp-medium) {
+    padding: 2rem;
+    margin-bottom: 2rem;
+  }
   &__text {
     line-height: 2rem;
     position: relative;
@@ -367,12 +459,17 @@
 .cta {
   padding: 3.5rem 0;
   text-align: center;
-
+  @media screen and (max-width: $bp-medium) {
+    padding: 2.5rem 0;
+  }
   &__book-now {
     font-size: 2rem;
     font-weight: 300;
     text-transform: uppercase;
     margin-bottom: 2.5rem;
+    @media screen and (max-width: $bp-smallest) {
+      line-height: 2.5rem;
+    }
   }
 }
 
